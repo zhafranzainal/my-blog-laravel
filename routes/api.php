@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\AuthController;
-use App\Http\Controllers\api\BlogPostController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +21,4 @@ Route::middleware('auth:sanctum', 'verified')->group(function () {
 
     // To logout
     Route::get('logout', [AuthController::class, 'logout']);
-
-    // // The route we have created to show all blog posts.
-    // Route::get('/blog', [BlogPostController::class, 'index']);
-    // Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
-    // Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
-    // Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database 
-    // Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
 });
