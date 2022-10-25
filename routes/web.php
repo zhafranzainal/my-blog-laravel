@@ -35,5 +35,4 @@ Route::middleware([
     Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit'])->name('edit'); //shows edit post form
     Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update'])->name('update'); //commits edited post to the database 
     Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy'])->name('destroy'); //deletes post from the database
-
 });

@@ -11,14 +11,12 @@ class BlogPostController extends Controller
     public function index()
     {
         // show all blog posts
-
-        // $posts = BlogPost::all(); //fetch all blog posts from DB
+        // $posts = BlogPost::all(); //fetch all blog posts from DBm
 	    // return $posts; //returns the fetched posts
-
         $posts = BlogPost::all(); //fetch all blog posts from DB
 
         return view('blog.index', [
-                'posts' => $posts,
+            'posts' => $posts,
         ]); //returns the view with posts
     }
 
@@ -32,7 +30,6 @@ class BlogPostController extends Controller
     public function store(Request $request)
     {
         //store a new post
-
         $newPost = BlogPost::create([
             'title' => $request->title,
             'body' => $request->body,
@@ -45,8 +42,7 @@ class BlogPostController extends Controller
     public function show(BlogPost $blogPost)
     {
         //show a blog post
-        // return $blogPost; //returns the fetched posts
-
+        //returns the fetched posts
         return view('blog.show', [
             'post' => $blogPost,
         ]); //returns the view with the post
@@ -55,21 +51,25 @@ class BlogPostController extends Controller
     
     public function edit(BlogPost $blogPost)
     {
-        //show form to edit the post
-
-        return view('blog.edit', [
-            'post' => $blogPost,
-            ]); //returns the edit view with the post
+        //where('user_id', auth()->user()->id)->get()
+        if($blogPost->user_id == auth()->user()->id){
+            return view('blog.edit', [
+                'post' => $blogPost,
+                ]); //returns the edit view with the post
+        }
     }
 
     
     public function update(Request $request, BlogPost $blogPost)
     {
+        //cuma boleh update dia punya blog sahaja
         //update post
-        $blogPost->update([
-            'title' => $request->title,
-            'body' => $request->body
-        ]);
+        if($blogPost->user_id == auth()->user()->id){
+            $blogPost->update([
+                'title' => $request->title,
+                'body' => $request->body
+            ]);
+        }
 
         return redirect('blog/' . $blogPost->id);
     }
@@ -77,9 +77,11 @@ class BlogPostController extends Controller
     
     public function destroy(BlogPost $blogPost)
     {
+        //cuma boleh delete dia punya blog sahaja
         //delete post
-
-        $blogPost->delete();
+        if($blogPost->user_id == auth()->user()->id){
+            $blogPost->delete();
+        }
 
         return redirect('/blog');
     }

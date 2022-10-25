@@ -15,9 +15,14 @@
                 </div>
                 <br>
                 <table class="table table-bordered">
+                    <tr class="text-center">
+                        <th>Blog</th>
+                        <th>Author</th>
+                    </tr>
                     @forelse($posts as $post)
                     <tr>
-                        <td><li><a href="{{route('show', [$post->id])}}">{{ ucfirst($post->title) }}</a></li></td>
+                        <td><a href="{{route('show', [$post->id])}}">{{ ucfirst($post->title)}}</a></td>
+                        <td class="text-center">{{ ucfirst($post->user->name)}}</td>
                     </tr>
                     @empty
                         <p class="text-warning">No blog Posts available</p>
