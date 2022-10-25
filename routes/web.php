@@ -29,6 +29,8 @@ Route::middleware([
     
     // The route we have created to show all blog posts.
     Route::get('/blog', [BlogPostController::class, 'index']);
+    Route::get('/blog/create/post', [BlogPostController::class, 'create']);
+    Route::post('/blog/create/post',[BlogPostController::class, 'store']);
     Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
     Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
     Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database 
