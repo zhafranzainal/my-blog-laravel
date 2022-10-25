@@ -28,19 +28,12 @@ Route::middleware([
     })->name('dashboard');
     
     // The route we have created to show all blog posts.
-    Route::get('/blog', [BlogPostController::class, 'index']);
-    Route::get('/blog/create/post', [BlogPostController::class, 'create']);
-    Route::post('/blog/create/post',[BlogPostController::class, 'store']);
-    Route::get('/blog/{blogPost}', [BlogPostController::class, 'show']);
-    Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit']); //shows edit post form
-    Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update']); //commits edited post to the database 
-    Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy']); //deletes post from the database
+    Route::get('/blog', [BlogPostController::class, 'index'])->name('index');
+    Route::get('/blog/create/post', [BlogPostController::class, 'create'])->name('create');
+    Route::post('/blog/create/post',[BlogPostController::class, 'store'])->name('store');
+    Route::get('/blog/{blogPost}', [BlogPostController::class, 'show'])->name('show');
+    Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit'])->name('edit'); //shows edit post form
+    Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update'])->name('update'); //commits edited post to the database 
+    Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy'])->name('destroy'); //deletes post from the database
 
 });
-
-Route::get('/blog', [\App\Http\Controllers\BlogPostController::class, 'index']);
-// Route::get('/blog/create/post, [\App\Http\Controllers\BlogPostController::class, 'create']); //shows create post form
-// Route::post('/blog/create/post, [\App\Http\Controllers\BlogPostController::class, 'store']); //saves the created post to the databse
-// Route::get('/blog/{blogPost}/edit', [\App\Http\Controllers\BlogPostController::class, 'edit']); //shows edit post form
-// Route::put('/blog/{blogPost}/edit', [\App\Http\Controllers\BlogPostController::class, 'update']); //commits edited post to the database 
-// Route::delete('/blog/{blogPost}', [\App\Http\Controllers\BlogPostController::class, 'destroy']); //deletes post from the database

@@ -10,14 +10,14 @@
                     </div>
                     <div class="col-4 text-center">
                         <p>Create new Post</p>
-                        <a href="/blog/create/post" class="btn btn-outline-primary">Add Post</a>
+                        <a href="{{route('create')}}" class="btn btn-outline-primary">Add Post</a>
                     </div>
                 </div>
                 <br>
                 <table class="table table-bordered">
                     @forelse($posts as $post)
                     <tr>
-                        <td><li><a href="./blog/{{ $post->id }}">{{ ucfirst($post->title) }}</a></li></td>
+                        <td><li><a href="{{route('show', [$post->id])}}">{{ ucfirst($post->title) }}</a></li></td>
                     </tr>
                     @empty
                         <p class="text-warning">No blog Posts available</p>
