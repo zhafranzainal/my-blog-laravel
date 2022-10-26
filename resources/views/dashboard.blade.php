@@ -20,7 +20,7 @@
                     <h1 class="display-one mt-5 display-4">{{ config('app.name') }}</h1>
                     <p class="pt-3">Login and start blogging now ! Have Fun!</p>
                     <br>
-                    <a href="{{route('index')}}" class="btn btn-outline-primary">Show MyBlog</a>
+                    <a href="{{route('blog-post.index')}}" class="btn btn-outline-primary">Show MyBlog</a>
                 </div>
             </div>
         </div>

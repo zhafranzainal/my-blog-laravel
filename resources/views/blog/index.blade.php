@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-4">
                         <p>Create new Post</p>
-                        <a href="{{route('create')}}" class="btn btn-outline-primary">Add Post</a>
+                        <a href="{{route('blog-post.create')}}" class="btn btn-outline-primary">Add Post</a>
                     </div>
                 </div>
                 <br>
@@ -21,7 +21,7 @@
                     </tr>
                     @forelse($posts as $post)
                     <tr>
-                        <td><a href="{{route('show', [$post->id])}}">{{ ucfirst($post->title)}}</a></td>
+                        <td><a href="{{route('blog-post.show',[$post->id])}}">{{ ucfirst($post->title)}}</a></td>
                         <td class="text-center">{{ ucfirst($post->user->name)}}</td>
                     </tr>
                     @empty

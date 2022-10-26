@@ -28,11 +28,5 @@ Route::middleware([
     })->name('dashboard');
     
     // The route we have created to show all blog posts.
-    Route::get('/blog', [BlogPostController::class, 'index'])->name('index');
-    Route::get('/blog/create/post', [BlogPostController::class, 'create'])->name('create');
-    Route::post('/blog/create/post',[BlogPostController::class, 'store'])->name('store');
-    Route::get('/blog/{blogPost}', [BlogPostController::class, 'show'])->name('show');
-    Route::get('/blog/{blogPost}/edit', [BlogPostController::class, 'edit'])->name('edit'); //shows edit post form
-    Route::put('/blog/{blogPost}/edit', [BlogPostController::class, 'update'])->name('update'); //commits edited post to the database 
-    Route::delete('/blog/{blogPost}', [BlogPostController::class, 'destroy'])->name('destroy'); //deletes post from the database
+    Route::resource('blog-post', BlogPostController::class);
 });
