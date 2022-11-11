@@ -22,19 +22,9 @@ class BlogController extends Controller
     {
         $data = BlogPost::get();
 
-        return $this->return_api(true, Response::HTTP_OK, null, BlogResource::collection($data), null,null);
+        return $this->return_api(true, Response::HTTP_OK, null, BlogResource::collection($data), null, null);
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -59,19 +49,7 @@ class BlogController extends Controller
      */
     public function show(BlogPost $blog)
     {
-        return $this->return_api(true, Response::HTTP_OK, null, new BlogResource($blog), null,null);
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return $this->return_api(true, Response::HTTP_OK, null, new BlogResource($blog), null, null);
     }
 
     /**
@@ -87,7 +65,6 @@ class BlogController extends Controller
         $blog->update($validated);
 
         return $this->return_api(true, Response::HTTP_ACCEPTED, null, null, null);
-
     }
 
     /**
@@ -100,6 +77,5 @@ class BlogController extends Controller
     {
         $blog->delete();
         return $this->return_api(true, Response::HTTP_ACCEPTED, null, null, null);
-
     }
 }

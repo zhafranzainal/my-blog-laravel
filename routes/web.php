@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogPostController;
-use App\Http\Controllers\api\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +29,4 @@ Route::middleware([
 
     // The route we have created to show all blog posts.
     Route::resource('blog-post', BlogPostController::class);
-
-    //blog
-    Route::resource('blog', BlogController::class);
-
 });
