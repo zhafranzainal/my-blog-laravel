@@ -13,7 +13,6 @@ use App\Http\Requests\BlogStoreRequest;
 
 class BlogController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +22,7 @@ class BlogController extends Controller
     {
         $data = BlogPost::get();
 
-        return BlogResource::collection($data);
+        return $this->return_api(true, Response::HTTP_OK, null, BlogResource::collection($data), null, null);
     }
 
 
@@ -52,7 +51,7 @@ class BlogController extends Controller
      */
     public function show(BlogPost $blog)
     {
-        return new BlogResource($blog);
+        return $this->return_api(true, Response::HTTP_OK, null, new BlogResource($blog), null, null);
     }
 
     /**
@@ -81,5 +80,4 @@ class BlogController extends Controller
         $blog->delete();
         return $this->return_api(true, Response::HTTP_ACCEPTED, null, null, null);
     }
-
 }
