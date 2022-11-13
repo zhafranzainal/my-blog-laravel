@@ -18,7 +18,7 @@ class BlogResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
-            'user_id' => new UserResource($this->user),
+            'user' => new UserResource($this->user),
         ];
     }
 }
