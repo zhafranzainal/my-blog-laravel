@@ -26,7 +26,7 @@ class BlogStoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'body' => 'required|string',
-            'user_id' => 'required|numeric',
+            'user_id' => 'numeric',
         ];
     }
 }
