@@ -13,6 +13,7 @@ use App\Http\Requests\BlogStoreRequest;
 
 class BlogController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -25,16 +26,6 @@ class BlogController extends Controller
         return BlogResource::collection($data);
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -60,18 +51,6 @@ class BlogController extends Controller
     public function show(BlogPost $blog)
     {
         return new BlogResource($blog);
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -87,7 +66,6 @@ class BlogController extends Controller
         $blog->update($validated);
 
         return $this->return_api(true, Response::HTTP_ACCEPTED, null, null, null);
-
     }
 
     /**
@@ -100,6 +78,6 @@ class BlogController extends Controller
     {
         $blog->delete();
         return $this->return_api(true, Response::HTTP_ACCEPTED, null, null, null);
-
     }
+    
 }
