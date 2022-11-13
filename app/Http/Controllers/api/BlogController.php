@@ -22,7 +22,7 @@ class BlogController extends Controller
     {
         $data = BlogPost::get();
 
-        return $this->return_api(true, Response::HTTP_OK, null, BlogResource::collection($data), null,null);
+        return BlogResource::collection($data);
     }
 
 
@@ -59,7 +59,7 @@ class BlogController extends Controller
      */
     public function show(BlogPost $blog)
     {
-        return $this->return_api(true, Response::HTTP_OK, null, new BlogResource($blog), null,null);
+        return new BlogResource($blog);
 
     }
 
