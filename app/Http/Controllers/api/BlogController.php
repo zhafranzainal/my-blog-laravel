@@ -37,6 +37,8 @@ class BlogController extends Controller
     {
         $validated = $request->validated();
 
+        $validated['user_id'] = auth()->user()->id;
+
         $blog = BlogPost::create($validated);
 
         return $this->return_api(true, Response::HTTP_CREATED, null, null, null);
@@ -79,5 +81,5 @@ class BlogController extends Controller
         $blog->delete();
         return $this->return_api(true, Response::HTTP_ACCEPTED, null, null, null);
     }
-    
+
 }
