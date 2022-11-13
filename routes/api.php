@@ -15,6 +15,9 @@ use App\Http\Controllers\api\BlogController;
 |
 */
 
+// To register
+Route::post('register', [AuthController::class, 'register']);
+
 // To login
 Route::post('login', [AuthController::class, 'login'])->name('api.login');
 
@@ -24,5 +27,5 @@ Route::middleware('auth:sanctum', 'verified')->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('api.logout');
 
     //blog
-    Route::resource('blog', BlogController::class);
+    Route::apiResource('blog', BlogController::class);
 });
