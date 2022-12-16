@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\api;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\BlogPost;
 use App\Http\Resources\BlogResource;
 use App\Http\Requests\BlogUpdateRequest;
 use App\Http\Requests\BlogStoreRequest;
-
 
 class BlogController extends Controller
 {
@@ -24,7 +22,6 @@ class BlogController extends Controller
 
         return $this->return_api(true, Response::HTTP_OK, null, BlogResource::collection($data), null, null);
     }
-
 
     /**
      * Store a newly created resource in storage.

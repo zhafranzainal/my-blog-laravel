@@ -26,6 +26,10 @@ Route::middleware('auth:sanctum', 'verified')->group(function () {
     // To logout
     Route::get('logout', [AuthController::class, 'logout'])->name('api.logout');
 
-    //blog
+    // List of blog posts
+    // Store new blog post
+    // Show specified blog post
+    // Update existing blog post
+    // Delete existing blog post
     Route::apiResource('blog', BlogController::class);
 });
